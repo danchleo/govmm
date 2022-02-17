@@ -1,5 +1,31 @@
 package main
 
+// #include <linux/kvm.h>
+// #include <stdio.h>
+// #include <err.h>
+//
+// static int myhandler(void* r) {
+// struct kvm_run* run = (struct kvm_run*) r;
+// switch (run->exit_reason) {
+//        case KVM_EXIT_HLT:
+//            puts("KVM_EXIT_HLT");
+//            return 0;
+//        case KVM_EXIT_IO:
+//            if (run->io.direction == KVM_EXIT_IO_OUT && run->io.size == 1 && run->io.port == 0x3f8 && run->io.count == 1)
+//                putchar(*(((char *)run) + run->io.data_offset));
+//            else
+//                errx(1, "unhandled KVM_EXIT_IO");
+//            break;
+//        case KVM_EXIT_FAIL_ENTRY:
+//            errx(1, "KVM_EXIT_FAIL_ENTRY: hardware_entry_failure_reason = 0x%llx",
+//                 (unsigned long long)run->fail_entry.hardware_entry_failure_reason);
+//        case KVM_EXIT_INTERNAL_ERROR:
+//            errx(1, "KVM_EXIT_INTERNAL_ERROR: suberror = 0x%x", run->internal.suberror);
+//        default:
+//            errx(1, "exit_reason = 0x%x", run->exit_reason);
+//        }
+// return 0;
+// }
 import "C"
 
 import (
